@@ -9,6 +9,7 @@ Nezavisni entiteti:
 - Godina
 - Grupa
 - Rata
+- Projekat
 
 Zavisni entiteti:
 - Uplatnica
@@ -16,6 +17,7 @@ Zavisni entiteti:
 Agregirani entiteti:
 - Roditelj_Ucenik
 - Predaje
+- Radi_Na_Projektu
 
 Trigeri:
 - Pre unosenja rate proverava se da li je zbir cena svih rata veci od cene godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
@@ -75,3 +77,15 @@ Veza izmedju nastavnika i ucenika
 - id_grupe
 - id_nastavnika
 - broj_ucionice
+
+### Projekat
+Programerski projekat koji moze da radi jedan ili vise ucenika sa mentorom (nastavnikom)
+- id_nastavnika: jedan od redovnih nastavnika je mentor na projektu
+- naziv
+- opis
+- url: adresa na kojoj ce moci da se vidi projekat
+
+### Radi_Na_Projektu
+Veza ucenika i projekta (ucenik moze da radi vise projekata, i projekat moze da radi vise ucenika)
+- id_ucenika
+- id_projekta
