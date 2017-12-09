@@ -13,6 +13,7 @@ Nezavisni entiteti:
 
 Zavisni entiteti:
 - Uplatnica
+- Stipendija
 
 Agregirani entiteti:
 - Roditelj_Ucenik
@@ -21,7 +22,7 @@ Agregirani entiteti:
 
 Trigeri:
 - Pre unosenja rate proverava se da li je zbir cena svih rata veci od cene godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
-- Pre unosenja rate, ukoliko je ucenik talentovan, proverava se da li je zbir cena svih rata veci od vrednosti cena_za_talentovane godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
+- Pre unosenja rate, ukoliko je ucenik u tabeli Stipendija, proverava se da li je zbir cena svih rata veci od vrednosti cena_za_stipendiste godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
 
 ### Ucenik
 Svaki ucenik ima svoj nalog. Kada ucenik zavrsi poslednju godinu, brise se iz evidencije.
@@ -30,7 +31,6 @@ Svaki ucenik ima svoj nalog. Kada ucenik zavrsi poslednju godinu, brise se iz ev
 - id_grupe: za ucenika se pamti grupa u kojoj slusa predavanja
 - username: korisnicko ime kojim ucenik pristupa sistemu
 - password: hesirana lozinka
-- talentovan: ukoliko ucenik bude dobro rangiran na prijemnom ispitu vodi se kao talentovan i placa godinu jeftinije
 
 ### Roditelj
 Roditelj ima uvid u finansije ali ne mogu da vide materijal i ostale stvari koje su potrebne uceniku. Nastavnici mogu da im se obracaju, zakazuju roditeljske sastanke, itd...
@@ -67,6 +67,11 @@ Sadrzi informacije o uplatiocu (roditelju), uceniku za koga se uplacuje i godinu
 Sadrzi dodatne informacije o uplati novca za potrebe knjigovodstva
 - id_rate: rata za koju je vezana uplatnica.
 - datum_uplate
+
+### Stipendija
+Sadrzi informaciju o ucenicima koji su dobro plasirani na prijemnom ispitu (najboljih 30), koji jeftinije placaju skolarinu.
+- id_ucenika
+- broj_poena_na_testu
 
 ### Roditelj_Ucenik
 Veza izmedju roditelja i ucenika (otac i majka mogu da poseduju nalog za jednog ucenika, i roditelj moze imati vise dece).
