@@ -23,6 +23,7 @@ Agregirani entiteti:
 Trigeri:
 - Pre unosenja rate proverava se da li je zbir cena svih rata veci od cene godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
 - Pre unosenja rate, ukoliko je ucenik u tabeli Stipendija, proverava se da li je zbir cena svih rata veci od vrednosti cena_za_stipendiste godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
+- Pre unosenja sifre za studenta ili roditelja, ona se hashuje.
 
 ### Ucenik
 Svaki ucenik ima svoj nalog. Kada ucenik zavrsi poslednju godinu, brise se iz evidencije.
