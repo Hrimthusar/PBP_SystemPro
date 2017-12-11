@@ -14,6 +14,7 @@ Nezavisni entiteti:
 Zavisni entiteti:
 - Uplatnica
 - Stipendija
+- Povracaj
 
 Agregirani entiteti:
 - Roditelj_Ucenik
@@ -24,26 +25,29 @@ Trigeri:
 - Pre unosenja rate proverava se da li je zbir cena svih rata veci od cene godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
 - Pre unosenja rate, ukoliko je ucenik u tabeli Stipendija, proverava se da li je zbir cena svih rata veci od vrednosti cena_za_stipendiste godine, i ako da rata se postavlja na potreban iznos, a ostatak novca se vraca roditelju.
 - Pre unosenja sifre za studenta ili roditelja, ona se hashuje.
+- Prilikom promene sifre za studenta ili roditelja, ako je razlicita od prethodne, hesira se.
 
 ### Ucenik
 Svaki ucenik ima svoj nalog. Kada ucenik zavrsi poslednju godinu, brise se iz evidencije.
 - ime
 - prezime
 - id_grupe: za ucenika se pamti grupa u kojoj slusa predavanja
-- username: korisnicko ime kojim ucenik pristupa sistemu
-- password: hesirana lozinka
+- korisnicko_ime: korisnicko ime kojim ucenik pristupa sistemu
+- sifra: hesirana lozinka
 
 ### Roditelj
 Roditelj ima uvid u finansije ali ne mogu da vide materijal i ostale stvari koje su potrebne uceniku. Nastavnici mogu da im se obracaju, zakazuju roditeljske sastanke, itd...
 - ime
 - prezime
-- username: korisnicko ime kojim roditelj pristupa sistemu
-- password: hesirana lozinka
+- korisnicko_ime: korisnicko ime kojim roditelj pristupa sistemu
+- sifra: hesirana lozinka
 
 ### Nastavnik
 Svaki nastavnik drzi nastavu celoj grupi jedne godine (svaki predmet), i moze da predaje vise grupa.
 - ime
 - prezime
+- korisnicko_ime: korisnicko ime kojim nastavnik pristupa sistemu
+- sifra: hesirana lozinka
 
 ### Godina
 Sadrzi informacije o rednom broju godine i o ceni / ceni za talentovane.
@@ -60,7 +64,6 @@ Po prelasku u drugu godinnu, menja se id_godine grupe, dok obelezje ostaje isto.
 ### Rata
 Sadrzi informacije o uplatiocu (roditelju), uceniku za koga se uplacuje i godinu koju ucenik slusa (da bi te informacije bile uvek dostpune).
 - iznos: uplacena kolicina novca
-- id_roditelja: roditelj koji je izvrsio uplatu
 - id_ucenika: ucenik za koga je izvrsena uplata
 - id_godine: godina koju ucenik pohadja (je pohadjao)
 
@@ -68,11 +71,17 @@ Sadrzi informacije o uplatiocu (roditelju), uceniku za koga se uplacuje i godinu
 Sadrzi dodatne informacije o uplati novca za potrebe knjigovodstva
 - id_rate: rata za koju je vezana uplatnica.
 - datum_uplate
+- id_roditelja: roditelj koji je izvrsio uplatu
 
 ### Stipendija
 Sadrzi informaciju o ucenicima koji su dobro plasirani na prijemnom ispitu (najboljih 30), koji jeftinije placaju skolarinu.
 - id_ucenika
 - broj_poena_na_testu
+
+### Povracaj
+Sadrzi informacije o povracaju novca ukoliko je uplaceno vise nego sto je potrebno.
+- id_rate
+- iznos
 
 ### Roditelj_Ucenik
 Veza izmedju roditelja i ucenika (otac i majka mogu da poseduju nalog za jednog ucenika, i roditelj moze imati vise dece).
