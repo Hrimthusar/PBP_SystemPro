@@ -60,4 +60,22 @@ FOR EACH ROW BEGIN
     END IF;
 END$$
 
+
+DROP TRIGGER IF EXISTS dodavanje_nastavnika_sifra $$
+
+CREATE TRIGGER dodavanje_nastavnika_sifra BEFORE INSERT ON Nastavnik
+FOR EACH ROW BEGIN
+    SET NEW.sifra = MD5(NEW.sifra);
+END$$
+
+
+DROP TRIGGER IF EXISTS izmena_nastavnika_sifra$$
+
+CREATE TRIGGER izmena_nastavnika_sifra BEFORE UPDATE ON Nastavnik
+FOR EACH ROW BEGIN
+    IF (MD5(NEW.sifra) <> OLD.sifra) THEN
+        set NEW.sifra = MD5(NEW.sifra);
+    END IF;
+END$$
+
 DELIMITER ;

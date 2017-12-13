@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `system_pro`.`Nastavnik` (
   `ime` VARCHAR(45) NOT NULL,
   `prezime` VARCHAR(45) NOT NULL,
   `korisnicko_ime` VARCHAR(45) NOT NULL,
-  `sifra` VARCHAR(16) NOT NULL,
+  `sifra` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`id_nastavnika`))
 ENGINE = InnoDB;
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `system_pro`.`Ucenik` (
   `prezime` VARCHAR(45) NOT NULL,
   `id_grupe` INT UNSIGNED NOT NULL,
   `korisnicko_ime` VARCHAR(45) NOT NULL,
-  `sifra` VARCHAR(16) NOT NULL,
+  `sifra` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`id_ucenika`),
   INDEX `fk_Ucenik_Grupa1_idx` (`id_grupe` ASC),
   CONSTRAINT `fk_Ucenik_Grupa1`
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `system_pro`.`Roditelj` (
   `ime` VARCHAR(45) NOT NULL,
   `prezime` VARCHAR(45) NOT NULL,
   `korisnicko_ime` VARCHAR(45) NOT NULL,
-  `sifra` VARCHAR(16) NOT NULL,
+  `sifra` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`id_roditelja`),
   UNIQUE INDEX `korisnicko_ime_UNIQUE` (`korisnicko_ime` ASC))
 ENGINE = InnoDB;
