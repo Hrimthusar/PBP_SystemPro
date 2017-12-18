@@ -1,2 +1,9 @@
 # Workbench
 *.bak
+
+# C
+*.o
+system_pro
+
+# TODO
+todo

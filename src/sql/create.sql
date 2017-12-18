@@ -60,10 +60,10 @@ ENGINE = InnoDB;
 -- Table `system_pro`.`Ucenik`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `system_pro`.`Ucenik` (
-  `id_ucenika` INT UNSIGNED NOT NULL,
+  `id_ucenika` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `ime` VARCHAR(45) NOT NULL,
   `prezime` VARCHAR(45) NOT NULL,
-  `id_grupe` INT UNSIGNED NOT NULL,
+  `id_grupe` INT UNSIGNED NULL,
   `korisnicko_ime` VARCHAR(45) NOT NULL,
   `sifra` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`id_ucenika`),
@@ -139,10 +139,11 @@ ENGINE = InnoDB;
 -- Table `system_pro`.`Rata`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `system_pro`.`Rata` (
-  `id_rate` INT UNSIGNED NOT NULL,
+  `id_rate` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `iznos` INT UNSIGNED NOT NULL,
   `id_godine` INT UNSIGNED NOT NULL,
   `id_ucenika` INT UNSIGNED NOT NULL,
+  `rb_rate` INT NOT NULL,
   PRIMARY KEY (`id_rate`),
   INDEX `fk_Rata_Godina1_idx` (`id_godine` ASC),
   INDEX `fk_Rata_Ucenik1_idx` (`id_ucenika` ASC),
@@ -231,21 +232,6 @@ CREATE TABLE IF NOT EXISTS `system_pro`.`Stipendija` (
   CONSTRAINT `fk_Stipendija_Ucenik1`
     FOREIGN KEY (`id_ucenika`)
     REFERENCES `system_pro`.`Ucenik` (`id_ucenika`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `system_pro`.`Povracaj`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `system_pro`.`Povracaj` (
-  `id_rate` INT UNSIGNED NOT NULL,
-  `iznos` INT NOT NULL,
-  PRIMARY KEY (`id_rate`),
-  CONSTRAINT `fk_Povracaj_Uplatnica1`
-    FOREIGN KEY (`id_rate`)
-    REFERENCES `system_pro`.`Uplatnica` (`id_rate`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
