@@ -53,6 +53,9 @@ INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik',
 INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','4',NULL,'ucenik4','123');
 INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','5',NULL,'ucenik5','123');
 INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','6',NULL,'ucenik6','123');
+INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','7',NULL,'ucenik7','123');
+INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','8',NULL,'ucenik8','123');
+INSERT INTO Ucenik (ime,prezime,id_grupe,korisnicko_ime,sifra) VALUES ('Ucenik','9',NULL,'ucenik9','123');
 
 
 INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (1,1);
@@ -61,6 +64,7 @@ INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (3,3);
 INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (4,4);
 INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (5,5);
 INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (6,6);
+INSERT INTO Roditelj_Ucenik (id_ucenika, id_roditelja) VALUES (2,1);
 
 
 INSERT INTO Stipendija (id_ucenika, broj_poena_na_testu) VALUES (1,100);
@@ -73,8 +77,10 @@ UPDATE Ucenik SET id_grupe = 5  WHERE id_ucenika = 2;
 UPDATE Ucenik SET id_grupe = 9  WHERE id_ucenika = 3;
 UPDATE Ucenik SET id_grupe = 13 WHERE id_ucenika = 4;
 UPDATE Ucenik SET id_grupe = 17 WHERE id_ucenika = 5;
-UPDATE Ucenik SET id_grupe = 19 WHERE id_ucenika = 6;
-
+UPDATE Ucenik SET id_grupe = 21 WHERE id_ucenika = 6;
+UPDATE Ucenik SET id_grupe = 1 WHERE id_ucenika = 7;
+UPDATE Ucenik SET id_grupe = 1 WHERE id_ucenika = 8;
+UPDATE Ucenik SET id_grupe = 1 WHERE id_ucenika = 9;
 
 INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','1','nastavnik1','123');
 INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','2','nastavnik2','123');
@@ -82,3 +88,22 @@ INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','3'
 INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','4','nastavnik4','123');
 INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','5','nastavnik5','123');
 INSERT INTO Nastavnik (ime,prezime,korisnicko_ime,sifra) VALUES ('Nastavnik','6','nastavnik6','123');
+
+
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (1,  1, 12);
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (5,  2, 1);
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (9,  3, 2);
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (13, 4, 3);
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (17, 5, 4);
+INSERT INTO Predaje (id_grupe, id_nastavnika, broj_ucionice) VALUES (21, 6, 34);
+
+
+INSERT INTO Projekat (id_nastavnika,naziv,opis,url) VALUES (1,'Projekat 1','Opis 1','~/projekat1');
+INSERT INTO Projekat (id_nastavnika,naziv,opis,url) VALUES (2,'Projekat 2','Opis 2','~/projekat2');
+INSERT INTO Projekat (id_nastavnika,naziv,opis,url) VALUES (3,'Projekat 3','Opis 3','~/projekat3');
+
+
+INSERT INTO Radi_Na_Projektu (id_ucenika, id_projekta) VALUES (1,1);
+INSERT INTO Radi_Na_Projektu (id_ucenika, id_projekta) VALUES (1,2);
+INSERT INTO Radi_Na_Projektu (id_ucenika, id_projekta) VALUES (2,2);
+INSERT INTO Radi_Na_Projektu (id_ucenika, id_projekta) VALUES (3,3);
